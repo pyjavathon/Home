@@ -8,8 +8,8 @@ public interface UserService {
 	
 	void delelteUser(String id);
 	
-	User insertUser(User user);
+	void insertUser(User user);
 	
-	User updateUser(User user);
+	void updateUser(User user);
 	
 }
