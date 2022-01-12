@@ -1,7 +1,9 @@
-package com.selfstudy.user;
+package com.selfstudy.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.selfstudy.user.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{

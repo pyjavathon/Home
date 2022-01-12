@@ -1,6 +1,7 @@
-package com.selfstudy.user;
+package com.selfstudy.user.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.selfstudy.user.entity.User;
+import com.selfstudy.user.service.UserService;
+
+import io.swagger.annotations.ApiOperation;
+
 
 @RestController
 @RequestMapping(value = "/user")
@@ -21,8 +27,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
-	UserRepository userRepo;
+
 	
 	
 	//get-read , 조회
@@ -50,4 +55,17 @@ public class UserController {
 		 userService.updateUser(user);
 	}
 	
+	//--------------------------------------------------------------
+	
+	@GetMapping(value="mapperSelectOne/{id}" , produces={"application/json"})
+	@ApiOperation(value="mybatis 사용 - id로 조회")
+	public @ResponseBody Optional<User> mapperSelectOne(@RequestBody @PathVariable("id") String id){
+		return userService.mapperSelectOne(id);
+	}
+	
+	@GetMapping(value="mapperSelectAll",produces= {"application/json"})
+	@ApiOperation(value="mybatis 사용 - 전체 조회")
+	public @ResponseBody List<User> mapperSelectAll() {
+		return userService.mapperSelectAll();
+	}
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.selfstudy.mapper.UserMapper">
+
+	<select id="mapperSelectOne" resultType="com.selfstudy.user.entity.User" parameterType="java.lang.String">
+	 SELECT *
+  	 FROM USERMGM
+  	 WHERE ID = #{id}
+	</select>
+
+
+<select id="selectAll" resultType="com.selfstudy.user.entity.User">
+	SELECT * FROM USERMGM
+</select>
+
+</mapper>

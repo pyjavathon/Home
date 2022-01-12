@@ -1,4 +1,4 @@
-package com.selfstudy.user;
+package com.selfstudy.user.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
